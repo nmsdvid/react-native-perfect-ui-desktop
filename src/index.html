@@ -5,10 +5,31 @@
     <title>react-native-perfect-ui-desktop</title>
   </head>
   <body>
+    <div class="container">
+      <div class="control-group">
+        <input type="file" id="uploadImage" accept="image/*">
+      </div>
 
-    <div>
-      <input type="file" id="uploadImage" accept="image/*">
-      <button id="uploadImageBtn">Upload Image</button>
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="visibilityToggle" checked>
+          Visible
+        </label>
+      </div>
+
+      <div class="control-group">
+        <label>
+          Opacity: <span id="opacityValue">100%</span>
+          <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="1" />
+        </label>
+      </div>
+
+      <div class="movement-controls">
+        <button class="up-btn" id="moveUp">↑</button>
+        <button class="left-btn" id="moveLeft">←</button>
+        <button class="right-btn" id="moveRight">→</button>
+        <button class="down-btn" id="moveDown">↓</button>
+      </div>
     </div>
   </body>
 </html>

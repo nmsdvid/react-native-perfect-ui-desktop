@@ -42,15 +42,12 @@ function initializeWebSocketServer() {
 initializeWebSocketServer();
 
 // Handle messages from renderer and broadcast to WebSocket clients
-ipcMain.handle('send-message', async (_event, message: { type: string; data: string; }) => {
+ipcMain.handle('send-message', async (_event, message) => {
     try {
         if (connections.size > 0) {
             for (const client of connections) {
                 if (client.readyState === WebSocket.OPEN) {
-                    client.send(JSON.stringify({
-                        type: 'image',
-                        data: message.data
-                    }));
+                    client.send(JSON.stringify(message));
                 }
             }
             return { success: true };
@@ -78,8 +75,10 @@ function createWindow() {
     // and load the index.html of the app.
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    // Only open DevTools in development mode
+    if (process.env.NODE_ENV !== 'production') {
+        mainWindow.webContents.openDevTools();
+    }
 }
 
 // This method will be called when Electron has finished

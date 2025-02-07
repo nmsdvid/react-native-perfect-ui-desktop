@@ -5,3 +5,42 @@ body {
   max-width: 38rem;
   padding: 2rem;
 }
+
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.control-group {
+  margin: 15px 0;
+}
+
+.movement-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.movement-controls button {
+  padding: 8px;
+}
+
+.up-btn { 
+  grid-column: 2; 
+}
+
+.left-btn { 
+  grid-column: 1; 
+  grid-row: 2; 
+}
+
+.right-btn { 
+  grid-column: 3; 
+  grid-row: 2; 
+}
+
+.down-btn { 
+  grid-column: 2; 
+  grid-row: 3; 
+}
