@@ -10,6 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
             reader.readAsDataURL(file);
         });
     },
-    sendMessage: (message: { type: string; data: string; }) => 
+    sendMessage: (message: { type: string; data: string; }) =>
         ipcRenderer.invoke('send-message', message)
 });

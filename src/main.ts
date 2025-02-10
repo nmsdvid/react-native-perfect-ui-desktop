@@ -6,7 +6,6 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 let connections = new Set<WebSocket.WebSocket>();
 
-// Initialize WebSocket Server
 function initializeWebSocketServer() {
     const wss = new WebSocket.Server({ port: 5000 });
 
@@ -41,7 +40,6 @@ function initializeWebSocketServer() {
 
 initializeWebSocketServer();
 
-// Handle messages from renderer and broadcast to WebSocket clients
 ipcMain.handle('send-message', async (_event, message) => {
     try {
         if (connections.size > 0) {
@@ -61,10 +59,9 @@ ipcMain.handle('send-message', async (_event, message) => {
 });
 
 function createWindow() {
-    // Create the browser window.
     const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 400,
+        height: 550,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,

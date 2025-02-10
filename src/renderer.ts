@@ -4,7 +4,6 @@ interface FileInputElement extends HTMLInputElement {
     files: FileList;
 }
 
-// We need to use the contextBridge API exposed by preload script
 declare global {
     interface Window {
         electronAPI: {
@@ -68,7 +67,6 @@ function toggleVisibility() {
     });
 }
 
-// Wait for DOM to be loaded
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('uploadImage') as FileInputElement;
     if (fileInput) {
