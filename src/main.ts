@@ -4,11 +4,11 @@ import * as WebSocket from 'ws';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
-let connections = new Set<WebSocket.WebSocket>();
+const connections = new Set<WebSocket.WebSocket>();
 
 function initializeWebSocketServer() {
-    const wss = new WebSocket.Server({ port: 5000 });
-
+    const wss = new WebSocket.Server({ port: 9321 });
+    
     wss.on('connection', (ws) => {
         console.log('React Native client connected');
         connections.add(ws);
