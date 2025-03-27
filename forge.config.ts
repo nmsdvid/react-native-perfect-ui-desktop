@@ -14,6 +14,12 @@ import { rendererConfig } from './webpack.renderer.config';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    osxSign: {},
+    osxNotarize: {
+      appleId: process.env.APPLE_ID as string,
+      appleIdPassword: process.env.APPLE_PASSWORD as string,
+      teamId: process.env.APPLE_TEAM_ID as string
+    }
   },
   rebuildConfig: {},
   makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
